@@ -2,6 +2,45 @@
 
 A custom integration that adds each **Pulse-Eight ProAmp8** 8-zone amplifier to Home Assistant as a **device**. Each device gets system and hardware sensors, plus volume, power mode and mute controls for every output zone. It talks to the amp directly over your LAN through the amp's HTTP/JSON API. No cloud connection is needed.
 
+## Screenshots
+
+An example dashboard: a volume slider, mute and power mode for each zone, plus the amp's status (YAML below).
+
+![ProAmp8 dashboard](docs/dashboard.png)
+
+| The amp's device page | Picking a zone's power mode | On a phone |
+|---|---|---|
+| ![Device page](docs/device.png) | ![Power mode](docs/power-mode.png) | ![Phone](docs/mobile.png) |
+
+<details>
+<summary>Dashboard YAML for one zone (repeat for each zone)</summary>
+
+Your entity IDs include the zone names you've set in the ProAmp web UI. Look them up on the device page if they differ.
+
+```yaml
+type: grid
+cards:
+  - type: tile
+    entity: number.proamp8_zone_1_kitchen_volume
+    name: Kitchen
+    icon: mdi:speaker
+    features:
+      - type: numeric-input
+        style: slider
+    features_position: bottom
+    grid_options: { columns: 6 }
+  - type: tile
+    entity: switch.proamp8_zone_1_kitchen_mute
+    name: Mute
+    grid_options: { columns: 3 }
+  - type: tile
+    entity: select.proamp8_zone_1_kitchen_power_mode
+    name: Power
+    grid_options: { columns: 3 }
+```
+
+</details>
+
 ## What you get (per amplifier)
 
 | Area | Entity | Type |
@@ -72,3 +111,5 @@ pip install pytest-homeassistant-custom-component
 pytest
 ```
 The tests run the integration inside Home Assistant against a stateful fake ProAmp8 (`tests/conftest.py`). They cover setup, every platform, the control round-trips, offline and recovery handling, the legacy-firmware fallbacks, and the config, options and reconfigure flows.
+
+To try the integration without an amp, run the same fake as a real HTTP server with `python -m tests.sim --port 8090`, then add the integration with host `127.0.0.1:8090`. The screenshots above were taken that way.
