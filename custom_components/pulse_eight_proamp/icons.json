@@ -1,0 +1,60 @@
+{
+  "entity": {
+    "sensor": {
+      "status": {
+        "default": "mdi:heart-pulse"
+      },
+      "dolby_mode": {
+        "default": "mdi:surround-sound"
+      },
+      "model": {
+        "default": "mdi:amplifier"
+      },
+      "firmware": {
+        "default": "mdi:chip"
+      },
+      "serial": {
+        "default": "mdi:barcode"
+      },
+      "mac": {
+        "default": "mdi:network"
+      },
+      "hardware_revision": {
+        "default": "mdi:expansion-card"
+      },
+      "hostname": {
+        "default": "mdi:dns"
+      }
+    },
+    "number": {
+      "zone_volume": {
+        "default": "mdi:volume-high"
+      }
+    },
+    "select": {
+      "zone_power_mode": {
+        "default": "mdi:power",
+        "state": {
+          "off": "mdi:power-off",
+          "on": "mdi:power-on",
+          "trigger_12v": "mdi:flash",
+          "auto_sense": "mdi:waveform"
+        }
+      }
+    },
+    "switch": {
+      "zone_mute": {
+        "default": "mdi:volume-high",
+        "state": {
+          "on": "mdi:volume-off"
+        }
+      },
+      "status_led": {
+        "default": "mdi:led-on",
+        "state": {
+          "off": "mdi:led-off"
+        }
+      }
+    }
+  }
+}

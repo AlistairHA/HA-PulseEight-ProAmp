@@ -1,0 +1,105 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add a Pulse-Eight ProAmp8",
+        "description": "Enter the IP address or hostname of the amplifier. Repeat for each amp you own.",
+        "data": {
+          "host": "Host"
+        },
+        "data_description": {
+          "host": "IP address of the ProAmp8, e.g. 192.168.1.50. A DHCP reservation is recommended."
+        }
+      },
+      "reconfigure": {
+        "title": "Change ProAmp8 address",
+        "data": {
+          "host": "Host"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the amplifier. Check the IP address and that it is on the network.",
+      "invalid_response": "The device answered, but not like a Pulse-Eight ProAmp8.",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This amplifier is already configured.",
+      "reconfigure_successful": "The address was updated.",
+      "wrong_device": "That address belongs to a different amplifier (serial number mismatch)."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ProAmp8 options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "System status"
+      },
+      "dolby_mode": {
+        "name": "Dolby mode",
+        "state": {
+          "off": "Off (stereo multi-zone)",
+          "on_3_zone": "On (3 zones)",
+          "on_4_zone": "On (4 zones)"
+        }
+      },
+      "model": {
+        "name": "Model"
+      },
+      "firmware": {
+        "name": "Firmware version"
+      },
+      "serial": {
+        "name": "Serial number"
+      },
+      "mac": {
+        "name": "MAC address"
+      },
+      "hardware_revision": {
+        "name": "Hardware revision"
+      },
+      "hostname": {
+        "name": "Hostname"
+      },
+      "temperature": {
+        "name": "Temperature {index}"
+      },
+      "last_boot": {
+        "name": "Last boot"
+      }
+    },
+    "number": {
+      "zone_volume": {
+        "name": "{zone_name} volume"
+      }
+    },
+    "select": {
+      "zone_power_mode": {
+        "name": "{zone_name} power mode",
+        "state": {
+          "off": "Off",
+          "on": "On",
+          "trigger_12v": "12V trigger",
+          "auto_sense": "Auto-sense"
+        }
+      }
+    },
+    "switch": {
+      "zone_mute": {
+        "name": "{zone_name} mute"
+      },
+      "status_led": {
+        "name": "Status LEDs"
+      }
+    }
+  }
+}
